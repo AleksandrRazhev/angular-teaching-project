@@ -1,4 +1,13 @@
-<form>
-  <input class="w-full p-4 mb-2" type="text" placeholder="Product name" />
-  <button class="p-4 bg-blue-600 text-white">Create</button>
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <p *ngIf="title.errors" class="text-red-600 font-medium mb-2">
+    {{ errorMessage }}
+  </p>
+  <input
+    class="w-full p-4 mb-2"
+    type="text"
+    placeholder="Product name"
+    formControlName="title"
+    appFocus
+  />
+  <button class="p-4 bg-blue-600 text-white" type="submit">Create</button>
 </form>
